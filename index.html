@@ -1,0 +1,399 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jam Digital</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      body {
+        background: #000;
+        color: white;
+        overflow: hidden;
+        transition:opacity 1.5s ease;
+      }
+
+      #background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        background-position: center;
+        z-index: -2;
+        transition: 1s;
+      }
+
+      .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: -1;
+      }
+
+      .header {
+        position: relative;
+        height: 120px;
+        background: rgba(rgba(255, 255, 250, 0.904));
+        display: flex;
+        align-items: center;
+        padding: 0 25px;
+        backdrop-filter: blur(8px);
+        border-bottom: 4px solid rgba(241, 200, 14, 0.966);
+      }
+
+      .logo-area {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 90px;
+        height: 90px;
+        margin-right: 20px;
+      }
+
+      .logo img {
+        width: 130px;
+        height: 130px;
+        object-fit: contain;
+        position: relative;
+        top: 6px;
+      }
+
+      .masjid h1 {
+        color: goldenrod;
+        font-size: 42px;
+        font-weight: bold;
+        margin: 0;
+      }
+
+      .masjid p {
+        margin: 0;
+        font-size: 24px;
+        font-weight: 650;
+        color: whitesmoke;
+      }
+
+      .jam {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        color: #eedf0a;
+        font-size: 85px;
+        font-weight: bold;
+        letter-spacing: 3px;       
+        text-shadow:0 0 15px rgba(226, 226, 200, 0.904);
+      
+
+      }
+
+      .info {
+        position: absolute;
+        right: 30px;
+        top: 32px;
+        text-align: right;
+        color: whitesmoke;
+        font-size: 35px;
+    
+      }
+
+      .hero {
+        height: 710px;
+        display: flex;
+        justify-content: center;
+        align-items: top;
+      }
+
+      .hero h2 {
+        font-size: 50px;
+        text-shadow: 3px 3px 15px black;
+      }
+
+      .jadwal {
+        display: flex;
+        width: 100%;
+      }
+
+      .card {
+        flex: 1;
+        text-align: center;
+        padding: 15px;
+        box-shadow: 0 4px 15 px rgba(0,0,0,.5)
+      }
+
+      .card h3 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .card p {
+        font-size: 35px;
+        font-weight: bold;
+      }
+
+      .active {
+        border: 5px solid yellow !important;
+        box-shadow: 0 0 20px yellow !important;
+        transform: scale(1.02);
+        transition: all 0.3s ease;
+      }
+
+      
+      .subuh {
+        background: #239b56;
+      }
+      .dzuhur {
+        background: #ca6f1e;
+      }
+      .ashar {
+        background: #138d75;
+      }
+      .maghrib {
+        background: #8e44ad;
+      }
+      .isya {
+        background: #34495e;
+      }
+
+      
+      .running {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        background:rgba(0,0,0,.55);
+        backdrop-filter: blur(8px);
+        color: white;
+        font-size: 28px;
+        padding: 10px;
+      }
+
+      marquee {
+        width: 100%;
+      }
+    </style>
+  </head>
+
+  <div>
+    <div id="background"></div>
+    <div class="overlay"></div>
+
+    <div class="header">
+      <div class="logo-area">
+        <div class="logo">
+          <img src ="logo.png">
+        </div>
+
+        <div class="masjid">
+          <h1>PT PINDAD (Persero)</h1>
+          <p>DIVISI PENGAMANAN</p>
+        </div>
+      </div>  
+
+        <div id="jam" class="jam">00:11:14</div>
+      </div>
+    </div> 
+
+     
+
+    <div class="info">
+      <span id="tanggal"></span>
+    </div>
+
+    <div class="hero">
+      <h2>DEPARTEMEN PENGAMANAN BANDUNG</h2>
+    </div>
+
+    <div class="jadwal">
+      
+
+      <div class="card subuh">
+        <h3>Subuh</h3>
+        <p>04:09</p>
+      </div>
+
+      
+
+      <div class="card dzuhur">
+        <h3>Dzuhur</h3>
+        <p>11:38</p>
+      </div>
+
+      <div class="card ashar">
+        <h3>Ashar</h3>
+        <p>14:46</p>
+      </div>
+
+      <div class="card maghrib">
+        <h3>Maghrib</h3>
+        <p>17:46</p>
+      </div>
+
+      <div class="card isya">
+        <h3>Isya</h3>
+        <p>18:53</p>
+      </div>
+    </div>
+
+    <div class="running">
+      <marquee scrollamount="12">
+        Selamat datang di Divisi Pengamanan PT Pindad (Persero) | AKHLAK ( Amanah, Kompeten, Loyal, Adaptif, Kolaboratif ) | Pengamanan bukan sekedar tugas, melainkan amanah untuk memastikan kehidupan berjalan lancar aman dan tanpa gangguan |
+        Keamanan yang andal dibangun dari perencanaan matang, pengawasan ketat dan kesadaran bersama, bukan hanya dari peralatan semata | Kerjasama yang erat dan komunikasi yang cepat adalah kunci mengatasi segala ancaman sebelum berkembang
+        menjadi bahaya nyata.
+      </marquee>
+    </div>
+
+    <audio id="adzan">
+      <source src="adzan.mp3" type="audio/mpeg" />
+    </audio>
+
+    <script>
+      // BACKGROUND SLIDESHOW
+
+      const backgrounds = ["bg1.jpg", "bg2.jpg", "bg3.jpg", "bg4.jpg", "bg5.jpg"];
+
+      let bgIndex = 0;
+
+      function changeBackground() {
+        document.getElementById("background").style.backgroundImage = `url('${backgrounds[bgIndex]}')`;
+
+        bgIndex++;
+
+        if (bgIndex >= backgrounds.length) {
+          bgIndex = 0;
+        }
+      }
+
+      changeBackground();
+      setInterval(changeBackground, 10000);
+
+      // JAM DIGITAL
+
+      function updateClock() {
+        const now = new Date();
+        
+        const h = String(now.getHours()).padStart(2, "0");
+        const m = String(now.getMinutes()).padStart(2, "0");
+        const s = String(now.getSeconds()).padStart(2, "0");
+
+        document.getElementById("jam").innerHTML = `${h}:${m}:${s}`;
+        updateDate();
+
+      }
+      setInterval(updateClock, 1000);
+      updateClock();
+      
+
+      // TANGGAL
+
+      function updateDate() {
+        const now = new Date();
+
+        document.getElementById("tanggal").innerHTML = now.toLocaleDateString("id-ID", {
+          weekday: "long",
+          day: "numeric",
+          month: "long",
+          year: "numeric",
+        });
+      }
+
+      updateDate();
+
+      // JADWAL SHOLAT
+
+      const jadwal = [
+        { nama: "Subuh", jam: "04:09" },
+        { nama: "Dzuhur", jam: "11:38" },
+        { nama: "Ashar", jam: "14:46" },
+        { nama: "Maghrib", jam: "17:46" },
+        { nama: "Isya", jam: "18:53" },
+      ];
+
+      function updateCountdown() {
+        const now = new Date();
+
+        let nextPrayer = null;
+
+        for (let i = 0; i < jadwal.length; i++) {
+          let [h, m] = jadwal[i].jam.split(":");
+
+          let target = new Date();
+
+          target.setHours(h);
+          target.setMinutes(m);
+          target.setSeconds(0);
+
+          if (target > now) {
+            nextPrayer = {
+              nama: jadwal[i].nama,
+              time: target,
+            };
+
+            break;
+          }
+        }
+
+        if (nextPrayer) {
+          let diff = nextPrayer.time - now;
+          let hh = Math.floor(diff / 3600000);
+          let mm = Math.floor((diff % 3600000) / 60000);
+          let ss = Math.floor((diff % 60000) / 1000);
+
+          document.getElementById("nextPrayer").innerHTML = nextPrayer.nama;
+          document.getElementById("countdown").innerHTML = String(hh).padStart(2, "0") + ":" + String(mm).padStart(2, "0") + ":" + String(ss).padStart(2, "0");
+
+          document.querySelectorAll('.card').forEach(card => {
+            card.classList.remove('active');
+          });
+          const namaClass = nextPrayer.nama.toLowerCase();
+          const cardAktif = document.querySelector(`.card.${namaClass}`);
+          if (cardAktif){
+            cardAktif.classList.add('active');
+          }
+
+        }
+      }
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+
+      // CEK ADZAN
+
+      function cekAdzan() {
+        const now = new Date();
+
+        const jam = String(now.getHours()).padStart(2, "0");
+
+        const menit = String(now.getMinutes()).padStart(2, "0");
+
+        const waktu = jam + ":" + menit;
+
+        jadwal.forEach((item) => {
+          if (item.jam === waktu) {
+            document
+              .getElementById("adzan")
+              .play()
+              .catch(() => {});
+          }
+        });
+      }
+
+      setInterval(cekAdzan, 1000);
+    </script>
+  </body>
+</html>
